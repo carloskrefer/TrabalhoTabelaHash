@@ -6,7 +6,7 @@ public class ListaOrdenada {
 	}
 	
 	public void inserir(int valor) {
-		if (primeiroNo == null) {
+		if (listaEstaVazia()) {
 			primeiroNo = new No(valor);
 			return;
 		} 
