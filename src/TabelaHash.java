@@ -1,8 +1,8 @@
 
 public class TabelaHash {
-	ListaOrdenadaRegistro[] vetor;
-	FuncaoHash funcao;
-	int tamanhoVetor;
+	private ListaOrdenadaRegistro[] vetor;
+	private FuncaoHash funcao;
+	private int tamanhoVetor;
 	
 	public TabelaHash(int tamanhoVetor, FuncaoHash funcao) {
 		vetor = new ListaOrdenadaRegistro[tamanhoVetor];
@@ -18,17 +18,22 @@ public class TabelaHash {
 	}
 
 	public void inserir(Registro registro) {
-		int posicao = funcao.calcularHash(registro.getCodigo());
+		int posicao = funcao.calcularHash(registro);
 		vetor[posicao].inserir(registro);
 	}
 	
 	public int informarNumeroComparacoesBusca(Registro registro) {
-		int posicao = funcao.calcularHash(registro.getCodigo());
+		int posicao = funcao.calcularHash(registro);
 		return vetor[posicao].informarNumeroComparacoesBusca(registro);
 	}
 	
-//	public Registro buscar(Registro registro) {
-//		int posicao = funcao.calcularHash(registro.getCodigo());
-//		
-//	}
+	public void imprimir() {
+		for (int i = 0; i < tamanhoVetor; i++) {
+			vetor[i].imprimir();
+		}
+	}
+	
+	public int getTamanhoVetor() {
+		return tamanhoVetor;
+	}
 }

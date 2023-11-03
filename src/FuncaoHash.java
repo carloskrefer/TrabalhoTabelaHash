@@ -1,3 +1,3 @@
 public interface FuncaoHash {
-	public int calcularHash(int valor); 
+	public int calcularHash(Registro registroChave); 
 }
