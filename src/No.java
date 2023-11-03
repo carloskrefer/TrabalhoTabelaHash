@@ -1,26 +1,21 @@
 
 public class No {
-	Integer valor;
+	Registro registro;
 	No proximoNo;
 	
-	public Integer getValor() {
-		return valor;
+	public Registro getRegistro() {
+		return registro;
 	}
-
-	public void setValor(Integer valor) {
-		this.valor = valor;
-	}
-
+	
 	public No getProximoNo() {
 		return proximoNo;
 	}
-
+	
 	public void setProximoNo(No proximoNo) {
 		this.proximoNo = proximoNo;
 	}
-
-	public No(int valor) {
-		this.valor = valor;
+	
+	public No(Registro registro) {
+		this.registro = registro;
 	}
-
 }

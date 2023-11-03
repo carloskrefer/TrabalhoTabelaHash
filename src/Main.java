@@ -6,16 +6,16 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		ListaOrdenada lista = new ListaOrdenada();
+		ListaOrdenadaRegistro lista = new ListaOrdenadaRegistro();
 		
-		lista.inserir(5);
-		lista.inserir(10);
-		lista.inserir(1);
-		lista.inserir(0);
-		lista.inserir(1);
-		lista.inserir(4);
-		lista.inserir(9);
-		lista.inserir(15);
+		lista.inserir(new Registro(5));
+		lista.inserir(new Registro(10));
+		lista.inserir(new Registro(1));
+		lista.inserir(new Registro(0));
+		lista.inserir(new Registro(1));
+		lista.inserir(new Registro(4));
+		lista.inserir(new Registro(9));
+		lista.inserir(new Registro(15));
 		
 		lista.imprimir();
 
