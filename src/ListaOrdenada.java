@@ -15,26 +15,12 @@ public class ListaOrdenada {
 	}
 	
 	private void inserir(No noAtual, No noAposAtual, int valorInserir) {		
-		if (noAtual == primeiroNo) {
-			if (valorInserir <= noAtual.getValor()) {
-				primeiroNo = new No(valorInserir);
-				primeiroNo.setProximoNo(noAtual);
-			} else {
-				if (noAposAtual == null) {
-					noAtual.setProximoNo(new No(valorInserir));
-				} else {
-					if (valorInserir <= noAposAtual.getValor()) {
-						noAtual.setProximoNo(new No(valorInserir));
-						noAtual.getProximoNo().setProximoNo(noAposAtual);
-					} else {
-						inserir(noAposAtual, noAposAtual.getProximoNo(), valorInserir);
-					}
-				}
-			}
+		if ((noAtual == primeiroNo) && (valorInserir <= noAtual.getValor())) {
+			primeiroNo = new No(valorInserir);
+			primeiroNo.setProximoNo(noAtual);
 			return;
 		} 
-		
-		// Aqui, eu já sei que o valorInserido é maior que o do noAtual. Só não sei se é maior que o noAposAtual.
+
 		if (noAposAtual == null) {
 			noAtual.setProximoNo(new No(valorInserir));
 		} else {
@@ -45,13 +31,6 @@ public class ListaOrdenada {
 				inserir(noAposAtual, noAposAtual.getProximoNo(), valorInserir);
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
 	}
 	
 	private boolean verificarSeEhUltimoNoLista(No no) {
