@@ -33,10 +33,6 @@ public class ListaOrdenada {
 		}
 	}
 	
-	private boolean verificarSeEhUltimoNoLista(No no) {
-		return no.getProximoNo() == null;
-	}
-	
 	public void imprimir() {
 		if (listaEstaVazia()) {
 			System.out.println("A estrutura está vazia.");
