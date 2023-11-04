@@ -17,14 +17,16 @@ public class TabelaHash {
 		}
 	}
 
-	public void inserir(Registro registro) {
+	// Retorna o número de comparações na inserção
+	public int inserir(Registro registro) {
 		int posicao = funcao.calcularHash(registro);
-		vetor[posicao].inserir(registro);
+		return vetor[posicao].inserir(registro);
 	}
 	
-	public int informarNumeroComparacoesBusca(Registro registro) {
+	// Retorna o número de comparações na busca
+	public int buscar(Registro registro) {
 		int posicao = funcao.calcularHash(registro);
-		return vetor[posicao].informarNumeroComparacoesBusca(registro);
+		return vetor[posicao].buscar(registro);
 	}
 	
 	public void imprimir() {

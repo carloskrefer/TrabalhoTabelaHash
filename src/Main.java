@@ -7,6 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		
+		long inicioCronometro = System.nanoTime();
+		
 		var x = 10;
 		
 		FuncaoHash funcao = (registroChave) -> {
@@ -15,15 +17,17 @@ public class Main {
 		
 		var tabela = new TabelaHash(10, funcao);
 		
-		tabela.inserir(new Registro(1003));
-		tabela.inserir(new Registro(1002));
-		tabela.inserir(new Registro(1013));
+		System.out.println(tabela.inserir(new Registro(13)));
+		System.out.println(tabela.inserir(new Registro(23)));
+		System.out.println(tabela.inserir(new Registro(43)));
+		System.out.println(tabela.inserir(new Registro(13)));
+		System.out.println(tabela.inserir(new Registro(53)));
 		
-		System.out.println(tabela.informarNumeroComparacoesBusca(new Registro(1013)));
 		
-		tabela.imprimir();
 		
-
+		long fimCronometro = System.nanoTime();
+		
+		System.out.println(((fimCronometro - inicioCronometro) / 1000000000.0) + "s");
 	}
 
 }

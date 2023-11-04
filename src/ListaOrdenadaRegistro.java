@@ -6,21 +6,23 @@ public class ListaOrdenadaRegistro {
 		tamanho = 0;
 	}
 	
-	public void inserir(Registro registro) {
+	public int inserir(Registro registro) {
 		tamanho++;
 		if (listaEstaVazia()) {
 			primeiroNo = new No(registro);
-			return;
+			return 0;
 		} 
-		inserir(primeiroNo, primeiroNo.getProximoNo(), registro);
+		return inserir(primeiroNo, primeiroNo.getProximoNo(), registro, 0);
 	}
 	
-	private void inserir(No noAtual, No noAposAtual, Registro registroInserido) {			
+	private int inserir(No noAtual, No noAposAtual, Registro registroInserido, int numeroComparacoes) {			
 		if ((noAtual == primeiroNo) && (registroInserido.getCodigo() <= noAtual.getRegistro().getCodigo())) {
 			primeiroNo = new No(registroInserido);
 			primeiroNo.setProximoNo(noAtual);
-			return;
-		} 
+			return ++numeroComparacoes;
+		}
+		
+		numeroComparacoes++;
 
 		if (noAposAtual == null) {
 			noAtual.setProximoNo(new No(registroInserido));
@@ -29,9 +31,10 @@ public class ListaOrdenadaRegistro {
 				noAtual.setProximoNo(new No(registroInserido));
 				noAtual.getProximoNo().setProximoNo(noAposAtual);
 			} else {
-				inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido);
+				numeroComparacoes = inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido, numeroComparacoes);
 			}
 		}
+		return numeroComparacoes;
 	}
 	
 	public void imprimir() {
@@ -52,11 +55,11 @@ public class ListaOrdenadaRegistro {
 		}
 	}
 	
-	public int informarNumeroComparacoesBusca(Registro registro) {
-		return informarNumeroComparacoesBusca(primeiroNo, registro, 1);
+	public int buscar(Registro registro) {
+		return buscar(primeiroNo, registro, 1);
 	}
 	
-	private int informarNumeroComparacoesBusca(No noAtual, Registro registro, int numeroComparacoes) {
+	private int buscar(No noAtual, Registro registro, int numeroComparacoes) {
 		if (noAtual == null) {
 			return numeroComparacoes;
 		}
@@ -64,7 +67,7 @@ public class ListaOrdenadaRegistro {
 		if (registro.getCodigo() == noAtual.getRegistro().getCodigo()) {
 			return numeroComparacoes;
 		} else {
-			return informarNumeroComparacoesBusca(noAtual.getProximoNo(), registro, ++numeroComparacoes);
+			return buscar(noAtual.getProximoNo(), registro, ++numeroComparacoes);
 		}
 	}
 	
