@@ -1,12 +1,12 @@
 
 public class TabelaHash {
 	private ListaOrdenadaRegistro[] vetor;
-	private FuncaoHash funcao;
+	private CalculadoraHash calculadoraHash;
 	private int tamanhoVetor;
 	
-	public TabelaHash(int tamanhoVetor, FuncaoHash funcao) {
+	public TabelaHash(int tamanhoVetor, CalculadoraHash calculadoraHash) {
 		vetor = new ListaOrdenadaRegistro[tamanhoVetor];
-		this.funcao = funcao;
+		this.calculadoraHash = calculadoraHash;
 		this.tamanhoVetor = tamanhoVetor;
 		popularVetorComListasVazias();
 	}
@@ -19,13 +19,13 @@ public class TabelaHash {
 
 	// Retorna o número de comparações na inserção
 	public int inserir(Registro registro) {
-		int posicao = funcao.calcularHash(registro);
+		int posicao = calculadoraHash.calcularHash(registro);
 		return vetor[posicao].inserir(registro);
 	}
 	
 	// Retorna o número de comparações na busca
 	public int buscar(Registro registro) {
-		int posicao = funcao.calcularHash(registro);
+		int posicao = calculadoraHash.calcularHash(registro);
 		return vetor[posicao].buscar(registro);
 	}
 	

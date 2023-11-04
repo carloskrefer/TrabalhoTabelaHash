@@ -10,9 +10,12 @@ public class ListaOrdenadaRegistro {
 		tamanho++;
 		if (listaEstaVazia()) {
 			primeiroNo = new No(registro);
+//			System.out.println("0 operações");
 			return 0;
 		} 
-		return inserir(primeiroNo, primeiroNo.getProximoNo(), registro, 0);
+		int qtdOperacoes = inserir(primeiroNo, primeiroNo.getProximoNo(), registro, 0);
+//		System.out.println(qtdOperacoes + " operações");
+		return qtdOperacoes;
 	}
 	
 	private int inserir(No noAtual, No noAposAtual, Registro registroInserido, int numeroComparacoes) {			
