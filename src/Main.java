@@ -38,8 +38,6 @@ public class Main {
 						obterDiferencaTempoSegundos(inicioCronometro, fimCronometro) + " s");
 				System.out.println("\t\tQuantidade de operações para inserção de " + TAMANHOS_CONJUNTO_DADOS[j] + 
 						" dados: " + qtdOperacoesInsercao);
-				tabelaHash.imprimir();
-				
 			}
 			
 		}
