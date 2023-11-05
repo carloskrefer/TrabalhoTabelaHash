@@ -8,7 +8,11 @@ public class Main {
 	
 	public static void main(String[] args) {	
 
-		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto(0, "Função Hash de Resto"));
+		int[] x = CalculadoraHashSoma.separarDigitos(123456789);
+		for (int i = 0; i < x.length; i++) {
+			System.out.println(x[i]);
+		}
+//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto(0, "Função Hash de Resto"));
 		
 	}
 	
