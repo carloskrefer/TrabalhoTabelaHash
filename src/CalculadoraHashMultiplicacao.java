@@ -20,6 +20,7 @@ public class CalculadoraHashMultiplicacao extends CalculadoraHash {
 			qtdRegistrosComPeloMenosUmNumeroZero++;
 		}
 		
+//		System.out.println("Produto: " + produto);
 		return produto;
 	}
 

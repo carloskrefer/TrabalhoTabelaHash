@@ -18,9 +18,9 @@ public class TabelaHash {
 	}
 
 	// Retorna o número de comparações na inserção
-	public int inserir(Registro registro) {
+	public void inserir(Registro registro) {
 		int posicao = calculadoraHash.calcularHash(registro);
-		return vetor[posicao].inserir(registro);
+		vetor[posicao].inserir(registro);
 	}
 	
 	// Retorna o número de comparações na busca
@@ -37,5 +37,41 @@ public class TabelaHash {
 	
 	public int getTamanhoVetor() {
 		return tamanhoVetor;
+	}
+	
+	public long obterQtdComparacoesInsercao() {
+		long qtd = 0;
+		for (int i = 0; i < tamanhoVetor; i++) {
+			qtd += vetor[i].qtdComparacoesInsercao;
+		}
+		return qtd;
+	}
+	
+	public long obterQtdColisoesInsercao() {
+		long qtd = 0;
+		for (int i = 0; i < tamanhoVetor; i++) {
+			qtd += vetor[i].qtdColisoesInsercao;
+		}
+		return qtd;
+	}
+	
+	public int buscarQtdRegistrosPilhaMaisVazia() {
+		int qtdRegistrosPilhaMaisVazia = vetor[0].getTamanho();
+		for (int i = 0; i < tamanhoVetor; i++) {
+			if (vetor[i].getTamanho() < qtdRegistrosPilhaMaisVazia) {
+				qtdRegistrosPilhaMaisVazia = vetor[i].getTamanho();
+			}
+		}
+		return qtdRegistrosPilhaMaisVazia;
+	}
+	
+	public int buscarQtdRegistrosPilhaMaisCheia() {
+		int qtdRegistrosPilhaMaisCheia = vetor[0].getTamanho();
+		for (int i = 0; i < tamanhoVetor; i++) {
+			if (vetor[i].getTamanho() > qtdRegistrosPilhaMaisCheia) {
+				qtdRegistrosPilhaMaisCheia = vetor[i].getTamanho();
+			}
+		}
+		return qtdRegistrosPilhaMaisCheia;
 	}
 }

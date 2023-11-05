@@ -19,11 +19,17 @@ public abstract class CalculadoraHash {
 	
 	public abstract int calcularHash(Registro registroChave);
 	
+	// numero = 4567 e numeroDigitos = 4
 	// 4567 % 10 = 7             7 / 1 = 7
 	// 4567 % 100 = 67          67 / 10 = 6
 	// 4567 % 1000 = 567       567 / 100 = 5
 	// 4567 % 10000 = 4567    4567 / 1000 = 4 
 	//        ^ divisorModulo        ^ divisor
+	//
+	// numero = 67 e numeroDigitos = 3
+	// 067 % 10 = 7		7 / 1 = 7
+	// 067 % 100 = 67   67 / 10 = 6
+	// 067 % 1000 = 67  67 / 100 = 0
 	public static int[] separarDigitos(int numero, int numeroDigitos) {
 		int[] retorno = new int[numeroDigitos];
 		for (int divisorDeModulo = 10, divisor = 1, i = (numeroDigitos - 1); i >= 0; divisorDeModulo *= 10, divisor *= 10, i--) {

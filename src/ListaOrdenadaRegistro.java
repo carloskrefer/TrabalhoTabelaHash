@@ -1,32 +1,38 @@
 public class ListaOrdenadaRegistro {
-	No primeiroNo;
-	int tamanho;
+	private No primeiroNo;
+	private int tamanho;
+	public long qtdColisoesInsercao = 0;
+	public long qtdComparacoesInsercao = 0;
+	
+	public int getTamanho() {
+		return tamanho;
+	}
 	
 	public ListaOrdenadaRegistro() {
 		tamanho = 0;
 	}
 	
-	public int inserir(Registro registro) {
+	public void inserir(Registro registro) {
 		tamanho++;
 		if (listaEstaVazia()) {
 			primeiroNo = new No(registro);
 //			System.out.println("0 operações");
-			return 0;
+			return;
 		} 
-		int qtdOperacoes = inserir(primeiroNo, primeiroNo.getProximoNo(), registro, 0);
-//		System.out.println(qtdOperacoes + " operações");
-		return qtdOperacoes;
+		
+		qtdColisoesInsercao++;
+		inserir(primeiroNo, primeiroNo.getProximoNo(), registro);
 	}
 	
-	private int inserir(No noAtual, No noAposAtual, Registro registroInserido, int numeroComparacoes) {			
+	private void inserir(No noAtual, No noAposAtual, Registro registroInserido) {			
+		qtdComparacoesInsercao++;
+		
 		if ((noAtual == primeiroNo) && (registroInserido.getCodigo() <= noAtual.getRegistro().getCodigo())) {
 			primeiroNo = new No(registroInserido);
 			primeiroNo.setProximoNo(noAtual);
-			return ++numeroComparacoes;
-		}
+			return;
+		}	
 		
-		numeroComparacoes++;
-
 		if (noAposAtual == null) {
 			noAtual.setProximoNo(new No(registroInserido));
 		} else {
@@ -34,10 +40,9 @@ public class ListaOrdenadaRegistro {
 				noAtual.setProximoNo(new No(registroInserido));
 				noAtual.getProximoNo().setProximoNo(noAposAtual);
 			} else {
-				numeroComparacoes = inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido, numeroComparacoes);
+				inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido);
 			}
 		}
-		return numeroComparacoes;
 	}
 	
 	public void imprimir() {
