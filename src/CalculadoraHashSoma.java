@@ -46,4 +46,10 @@ public class CalculadoraHashSoma extends CalculadoraHash {
 		return retorno;
 	}
 	
+	public static void imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(int[] arrayDigitos, int qtdDigitos) {
+		for (int i = 0; i < qtdDigitos; i++) {
+			System.out.print(arrayDigitos[i]);
+		}
+	}
+	
 }

@@ -14,13 +14,16 @@ public class Main {
 //		System.out.println(CalculadoraHashSoma.separarDigitos(123456789, 9));
 		
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
+		System.out.println();
+		
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
 		System.out.print("Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
-				"Soma calculada a partir do número aleatório ");
-		for (int i = 0; i < 9; i++) {
-			System.out.print(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma[i]);
-		}
+				"Soma calculada a partir do número aleatório "); 
+		CalculadoraHashSoma.imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma, 9);
 		System.out.println(".");
+		System.out.println();
+		
+		
 		// TALVEZ SEJA LEGAL PEGAR O NÚMERO DE COLISÕES E NÃO SÓ O NÚMERO DE COMPARAÇÕES
 	}
 	
