@@ -1,8 +1,8 @@
 
 public class CalculadoraHashResto extends CalculadoraHash {
 
-	public CalculadoraHashResto(int tamanhoArrayTabelaHash, String nomeCalculadora) {
-		super(tamanhoArrayTabelaHash, nomeCalculadora);
+	public CalculadoraHashResto(String nomeCalculadora) {
+		super(nomeCalculadora);
 	}
 	
 	public int calcularHash(Registro registroChave) {

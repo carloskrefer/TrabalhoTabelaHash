@@ -12,8 +12,7 @@ public abstract class CalculadoraHash {
 		this.tamanhoArrayTabelaHash = tamanhoArrayTabelaHash;
 	}
 
-	public CalculadoraHash(int tamanhoArrayTabelaHash, String nomeCalculadora) {
-		this.tamanhoArrayTabelaHash = tamanhoArrayTabelaHash;
+	public CalculadoraHash(String nomeCalculadora) {
 		this.nomeCalculadora = nomeCalculadora;
 	}
 	

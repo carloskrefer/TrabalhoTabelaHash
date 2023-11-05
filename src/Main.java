@@ -2,17 +2,19 @@ import java.util.Random;
 
 public class Main {	
 //	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10, 100, 1_000, 10_000, 100_000};
-	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {5, 7};
+	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10};
 //	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
-	private static final int[] TAMANHOS_CONJUNTO_DADOS = {3, 5};
+	private static final int[] TAMANHOS_CONJUNTO_DADOS = {50};
 	
 	public static void main(String[] args) {	
 
-		int[] x = CalculadoraHashSoma.separarDigitos(123456789, 9);
-		for (int i = 0; i < x.length; i++) {
-			System.out.println(x[i]);
-		}
-//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto(0, "Função Hash de Resto"));
+//		int x = new CalculadoraHashSoma(40, "").calcularHash(new Registro(123456789));
+//		System.out.println(x);
+		
+//		System.out.println(CalculadoraHashSoma.separarDigitos(123456789, 9));
+		
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
 		
 	}
 	
@@ -57,7 +59,7 @@ public class Main {
 		int qtdComparacoes = 0;
 		Random random = new Random(1L);
 		for (int i = 0; i < qtdInsercoes; i++) {
-			qtdComparacoes += tabela.inserir(new Registro(random.nextInt(Registro.LIMITE_SUPERIOR_CODIGO + 1)));
+			qtdComparacoes += tabela.inserir(new Registro(random.nextInt(Registro.LIMITE_SUPERIOR + 1)));
 		}
 		return qtdComparacoes;
 	}
