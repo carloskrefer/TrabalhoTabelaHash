@@ -1,6 +1,8 @@
 
 public class CalculadoraHashSoma extends CalculadoraHash {
-
+	public static int maiorSoma = 0;
+	public static int[] arrayDigitosSeparadosMaiorSoma;
+	
 	public CalculadoraHashSoma(String nomeCalculadora) {
 		super(nomeCalculadora);
 	}
@@ -8,17 +10,26 @@ public class CalculadoraHashSoma extends CalculadoraHash {
 	public int calcularHash(Registro registroChave) {
 		int soma = 0;
 		int[] arrayDigitosSeparados = separarDigitos(registroChave.getCodigo(), Registro.QTD_DIGITOS);
+		int excesso;
 		
 		for (int i = 0; i < Registro.QTD_DIGITOS; i++) {
-			// tamanhoArrayTabelaHash - 1 pois se o tamanho é 8 o array da tabela hash só vai de 0 a 7
-			if ((soma + arrayDigitosSeparados[i]) > (tamanhoArrayTabelaHash - 1)) {
+			soma += arrayDigitosSeparados[i];
+			if (soma > (tamanhoArrayTabelaHash - 1)) {
+				excesso = soma - (tamanhoArrayTabelaHash - 1);
+				while (excesso > (tamanhoArrayTabelaHash - 1)) {
+					excesso -= tamanhoArrayTabelaHash;
+				}
+				soma = excesso;
 				break;
-			} else {
-				soma += arrayDigitosSeparados[i];
 			}
+			
 		}
 		
-		System.out.println("Calculo hash soma: " + soma);
+//		System.out.println("Calculo hash soma: " + soma);
+		if (soma > maiorSoma) {
+			maiorSoma = soma;
+			arrayDigitosSeparadosMaiorSoma = arrayDigitosSeparados;
+		}
 		return soma;
 	};
                             

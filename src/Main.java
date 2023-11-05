@@ -2,9 +2,9 @@ import java.util.Random;
 
 public class Main {	
 //	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10, 100, 1_000, 10_000, 100_000};
-	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10};
+	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {1000};
 //	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
-	private static final int[] TAMANHOS_CONJUNTO_DADOS = {50};
+	private static final int[] TAMANHOS_CONJUNTO_DADOS = {200000};
 	
 	public static void main(String[] args) {	
 
@@ -15,7 +15,13 @@ public class Main {
 		
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
-		
+		System.out.print("Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
+				"Soma calculada a partir do número aleatório ");
+		for (int i = 0; i < 9; i++) {
+			System.out.print(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma[i]);
+		}
+		System.out.println(".");
+		// TALVEZ SEJA LEGAL PEGAR O NÚMERO DE COLISÕES E NÃO SÓ O NÚMERO DE COMPARAÇÕES
 	}
 	
 	private static void realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(CalculadoraHash calculadoraHash) {

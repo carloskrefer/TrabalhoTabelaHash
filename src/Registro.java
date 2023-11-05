@@ -5,7 +5,7 @@ public class Registro {
 	private int codigo;
 	
 	public Registro(int codigo) {
-		System.out.println("Gerado um registro com o número aleatório: " + codigo);
+//		System.out.println("Gerado um registro com o número aleatório: " + codigo);
 		this.codigo = codigo;
 	}
 
