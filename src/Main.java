@@ -63,6 +63,7 @@ public class Main {
 				
 				System.out.println("\t\t\tBusca    - Tempo decorrido na localizar 5 elementos aleatórios já inseridos: " + 
 						obterDiferencaTempoSegundos(inicioCronometro, fimCronometro) + "s");
+				System.out.println("\t\t\tBusca    - Quantidade média de comparações por busca: " + (qtdComparacoesBusca / 5.0));
 			}
 		}
 	}
