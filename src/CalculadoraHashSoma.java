@@ -7,6 +7,7 @@ public class CalculadoraHashSoma extends CalculadoraHash {
 	
 	public int calcularHash(Registro registroChave) {
 		
+//		int[] arrayDigitosSeparados = separarDigitos(registroChave.getCodigo());
 		
 		
 		return registroChave.getCodigo() % tamanhoArrayTabelaHash;
@@ -18,9 +19,9 @@ public class CalculadoraHashSoma extends CalculadoraHash {
 	// 4567 % 10000 = 4567    4567 / 1000 = 4 
 	//        ^ divisorModulo        ^ divisor
 	// Condição de parada: resultado do último módulo sem alteração.
-	public static int[] separarDigitos(int numero) {
-		int[] retorno = new int[9];
-		for (int divisorDeModulo = 10, divisor = 1, i = 8; i >= 0; divisorDeModulo *= 10, divisor *= 10, i--) {
+	public static int[] separarDigitos(int numero, int numeroDigitos) {
+		int[] retorno = new int[numeroDigitos];
+		for (int divisorDeModulo = 10, divisor = 1, i = (numeroDigitos - 1); i >= 0; divisorDeModulo *= 10, divisor *= 10, i--) {
 			retorno[i] = (numero % divisorDeModulo) / divisor;
 		}
 		return retorno;

@@ -8,7 +8,7 @@ public class Main {
 	
 	public static void main(String[] args) {	
 
-		int[] x = CalculadoraHashSoma.separarDigitos(123456789);
+		int[] x = CalculadoraHashSoma.separarDigitos(123456789, 9);
 		for (int i = 0; i < x.length; i++) {
 			System.out.println(x[i]);
 		}
