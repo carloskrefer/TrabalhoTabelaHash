@@ -7,11 +7,20 @@ public class CalculadoraHashMultiplicacao extends CalculadoraHash {
 	}
 	
 	public int calcularHash(Registro registroChave) {
-		int multiplicacao = 1;
-		return 1;
-//		for (int i = 0; i < Registro.QTD_DIGITOS; i++) {
-//			
-//		}
+		int produto = 1;
+		int[] arrayDigitosSeparados = separarDigitos(registroChave.getCodigo(), Registro.QTD_DIGITOS);
+		
+		for (int i = 0; i < Registro.QTD_DIGITOS; i++) {
+			produto *= arrayDigitosSeparados[i];
+		}
+		
+		produto = aplicarCircularBufferParaQueResultadoEstejaNoLimiteDoTamanhoArrayTabelaHash(produto);
+			
+		if (produto == 0) {
+			qtdRegistrosComPeloMenosUmNumeroZero++;
+		}
+		
+		return produto;
 	}
 
 }

@@ -13,19 +13,11 @@ public class CalculadoraHashSoma extends CalculadoraHash {
 		int excesso;
 		
 		for (int i = 0; i < Registro.QTD_DIGITOS; i++) {
-			soma += arrayDigitosSeparados[i];
-			if (soma > (tamanhoArrayTabelaHash - 1)) {
-				excesso = soma - (tamanhoArrayTabelaHash - 1);
-				while (excesso > (tamanhoArrayTabelaHash - 1)) {
-					excesso -= tamanhoArrayTabelaHash;
-				}
-				soma = excesso;
-				break;
-			}
-			
+			soma += arrayDigitosSeparados[i];		
 		}
 		
-//		System.out.println("Calculo hash soma: " + soma);
+		soma = aplicarCircularBufferParaQueResultadoEstejaNoLimiteDoTamanhoArrayTabelaHash(soma);
+		
 		if (soma > maiorSoma) {
 			maiorSoma = soma;
 			arrayDigitosSeparadosMaiorSoma = arrayDigitosSeparados;

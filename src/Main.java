@@ -4,14 +4,9 @@ public class Main {
 //	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10, 100, 1_000, 10_000, 100_000};
 	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {1000};
 //	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
-	private static final int[] TAMANHOS_CONJUNTO_DADOS = {200000};
+	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20000};
 	
 	public static void main(String[] args) {	
-
-//		int x = new CalculadoraHashSoma(40, "").calcularHash(new Registro(123456789));
-//		System.out.println(x);
-		
-//		System.out.println(CalculadoraHashSoma.separarDigitos(123456789, 9));
 		
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
 		System.out.println();
@@ -23,6 +18,10 @@ public class Main {
 		System.out.println(".");
 		System.out.println();
 		
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashMultiplicacao("Função Hash de Multiplicação"));
+		System.out.print("Quantidade de registros com pelo um dígito sendo zero: " + 
+				CalculadoraHashMultiplicacao.qtdRegistrosComPeloMenosUmNumeroZero + ".");
+		System.out.println();
 		
 		// TALVEZ SEJA LEGAL PEGAR O NÚMERO DE COLISÕES E NÃO SÓ O NÚMERO DE COMPARAÇÕES
 	}

@@ -1,5 +1,6 @@
 
 public abstract class CalculadoraHash {
+	public static int qtdIteracoesCircularBuffer = 0;
 	
 	protected int tamanhoArrayTabelaHash;
 	private String nomeCalculadora;
@@ -35,5 +36,13 @@ public abstract class CalculadoraHash {
 		for (int i = 0; i < qtdDigitos; i++) {
 			System.out.print(arrayDigitos[i]);
 		}
+	}
+	
+	protected int aplicarCircularBufferParaQueResultadoEstejaNoLimiteDoTamanhoArrayTabelaHash(int valor) {
+		while (valor > (tamanhoArrayTabelaHash - 1)) {
+			valor -= tamanhoArrayTabelaHash;
+			qtdIteracoesCircularBuffer++;
+		}
+		return valor;
 	}
 }
