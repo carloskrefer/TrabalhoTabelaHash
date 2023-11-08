@@ -1,10 +1,8 @@
 import java.util.Random;
 
 public class Main {	
-//	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10, 100, 1_000, 10_000, 100_000};
-	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {100};
-//	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
-	private static final int[] TAMANHOS_CONJUNTO_DADOS = {10000};
+	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {1000_000};
+	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
 	
 	public static void main(String[] args) {		
 		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
@@ -61,8 +59,9 @@ public class Main {
 				qtdComparacoesBusca = buscarCincoPrimeirosDadosAleatoriosRetornandoTotalComparacoes(tabelaHash);
 				fimCronometro = System.nanoTime();
 				
-				System.out.println("\t\t\tBusca    - Tempo decorrido na localizar 5 elementos aleatórios já inseridos: " + 
-						obterDiferencaTempoSegundos(inicioCronometro, fimCronometro) + "s");
+				System.out.printf("\t\t\tBusca    - Tempo decorrido na localizar 5 elementos aleatórios já inseridos: %.9f s\n", 
+						obterDiferencaTempoSegundos(inicioCronometro, fimCronometro));
+				
 				System.out.println("\t\t\tBusca    - Quantidade média de comparações por busca: " + (qtdComparacoesBusca / 5.0));
 			}
 		}
