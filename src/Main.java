@@ -1,25 +1,34 @@
 import java.util.Random;
 
 public class Main {	
-	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {1000_000};
+	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {100000};
 	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
 	
 	public static void main(String[] args) {		
-		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
-		System.out.println();
+
+		ListaOrdenadaRegistro lo = new ListaOrdenadaRegistro();
+		lo.inserir(new Registro(11));
+		lo.inserir(new Registro(0));
+		lo.inserir(new Registro(11));
+		lo.inserir(new Registro(19));
+		lo.inserir(new Registro(-1));
+		lo.imprimir();
 		
-		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
-		System.out.print("\t\t\tInserção - Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
-				"Soma calculada a partir do número aleatório "); 
-		CalculadoraHashSoma.imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma, Registro.QTD_DIGITOS);
-		System.out.println(".");
-		System.out.println();
+//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
+//		System.out.println();
 		
-		
-		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashMultiplicacao("Função Hash de Multiplicação"));
-		System.out.print("\t\t\tInserção - Quantidade de registros com pelo um dígito sendo zero: " + 
-				CalculadoraHashMultiplicacao.qtdRegistrosComPeloMenosUmNumeroZero + ".");
-		System.out.println();
+//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
+//		System.out.print("\t\t\tInserção - Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
+//				"Soma calculada a partir do número aleatório "); 
+//		CalculadoraHashSoma.imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma, Registro.QTD_DIGITOS);
+//		System.out.println(".");
+//		System.out.println();
+//		
+//		
+//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashMultiplicacao("Função Hash de Multiplicação"));
+//		System.out.print("\t\t\tInserção - Quantidade de registros com pelo um dígito sendo zero: " + 
+//				CalculadoraHashMultiplicacao.qtdRegistrosComPeloMenosUmNumeroZero + ".");
+//		System.out.println();
 	}
 	
 	private static void realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(CalculadoraHash calculadoraHash) {

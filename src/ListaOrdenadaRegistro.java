@@ -21,29 +21,53 @@ public class ListaOrdenadaRegistro {
 		} 
 		
 		qtdColisoesInsercao++;
-		inserir(primeiroNo, primeiroNo.getProximoNo(), registro);
-	}
-	
-	private void inserir(No noAtual, No noAposAtual, Registro registroInserido) {			
-		qtdComparacoesInsercao++;
 		
-		if ((noAtual == primeiroNo) && (registroInserido.getCodigo() <= noAtual.getRegistro().getCodigo())) {
-			primeiroNo = new No(registroInserido);
-			primeiroNo.setProximoNo(noAtual);
-			return;
-		}	
+		No noAtual = primeiroNo;
+		No noAposAtual = primeiroNo.getProximoNo();
 		
-		if (noAposAtual == null) {
-			noAtual.setProximoNo(new No(registroInserido));
-		} else {
-			if (registroInserido.getCodigo() <= noAposAtual.getRegistro().getCodigo()) {
-				noAtual.setProximoNo(new No(registroInserido));
-				noAtual.getProximoNo().setProximoNo(noAposAtual);
+		for (int i = 0; i < tamanho; i++) {
+			qtdComparacoesInsercao++;
+			
+			if ((noAtual == primeiroNo) && (registro.getCodigo() <= noAtual.getRegistro().getCodigo())) {
+				primeiroNo = new No(registro);
+				primeiroNo.setProximoNo(noAtual);
+				return;
+			}	
+			
+			if (noAposAtual == null) {
+				noAtual.setProximoNo(new No(registro));
 			} else {
-				inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido);
+				if (registro.getCodigo() <= noAposAtual.getRegistro().getCodigo()) {
+					noAtual.setProximoNo(new No(registro));
+					noAtual.getProximoNo().setProximoNo(noAposAtual);
+				} else {
+					noAtual = noAposAtual;
+					noAposAtual = noAposAtual.getProximoNo();
+				}
 			}
 		}
 	}
+	
+//	private void inserir(No noAtual, No noAposAtual, Registro registroInserido) {			
+//		qtdComparacoesInsercao++;
+//		
+//		if ((noAtual == primeiroNo) && (registroInserido.getCodigo() <= noAtual.getRegistro().getCodigo())) {
+//			primeiroNo = new No(registroInserido);
+//			primeiroNo.setProximoNo(noAtual);
+//			return;
+//		}	
+//		
+//		if (noAposAtual == null) {
+//			noAtual.setProximoNo(new No(registroInserido));
+//		} else {
+//			if (registroInserido.getCodigo() <= noAposAtual.getRegistro().getCodigo()) {
+//				noAtual.setProximoNo(new No(registroInserido));
+//				noAtual.getProximoNo().setProximoNo(noAposAtual);
+//			} else {
+//				inserir(noAposAtual, noAposAtual.getProximoNo(), registroInserido);
+//			}
+//		}
+//	}
 	
 	public void imprimir() {
 		if (listaEstaVazia()) {
