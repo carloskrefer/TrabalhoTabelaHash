@@ -90,21 +90,37 @@ public class ListaOrdenadaRegistro {
 		}
 	}
 	
-	public int buscar(Registro registro) {
-		return buscar(primeiroNo, registro, 1);
-	}
-	
-	private int buscar(No noAtual, Registro registro, int numeroComparacoes) {
-		if (noAtual == null) {
-			return numeroComparacoes;
+	public int buscar(Registro registro) {		
+		No noAtual = primeiroNo;
+		int numeroComparacoes = 1;
+		
+		for (int i = 0; i < tamanho; i++) {
+			if (noAtual == null) {
+				return numeroComparacoes;
+			}
+			
+			if (registro.getCodigo() == noAtual.getRegistro().getCodigo()) {
+				return numeroComparacoes;
+			} else {
+				noAtual = noAtual.getProximoNo();
+				numeroComparacoes++;
+			}
 		}
 		
-		if (registro.getCodigo() == noAtual.getRegistro().getCodigo()) {
-			return numeroComparacoes;
-		} else {
-			return buscar(noAtual.getProximoNo(), registro, ++numeroComparacoes);
-		}
+		return numeroComparacoes;
 	}
+	
+//	private int buscar(No noAtual, Registro registro, int numeroComparacoes) {
+//		if (noAtual == null) {
+//			return numeroComparacoes;
+//		}
+//		
+//		if (registro.getCodigo() == noAtual.getRegistro().getCodigo()) {
+//			return numeroComparacoes;
+//		} else {
+//			return buscar(noAtual.getProximoNo(), registro, ++numeroComparacoes);
+//		}
+//	}
 	
 	public boolean listaEstaVazia() {
 		return (primeiroNo == null);

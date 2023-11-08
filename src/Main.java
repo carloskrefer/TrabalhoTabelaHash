@@ -6,21 +6,21 @@ public class Main {
 	
 	public static void main(String[] args) {		
 		
-//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
-//		System.out.println();
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
+		System.out.println();
 		
-//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
-//		System.out.print("\t\t\tInserção - Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
-//				"Soma calculada a partir do número aleatório "); 
-//		CalculadoraHashSoma.imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma, Registro.QTD_DIGITOS);
-//		System.out.println(".");
-//		System.out.println();
-//		
-//		
-//		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashMultiplicacao("Função Hash de Multiplicação"));
-//		System.out.print("\t\t\tInserção - Quantidade de registros com pelo um dígito sendo zero: " + 
-//				CalculadoraHashMultiplicacao.qtdRegistrosComPeloMenosUmNumeroZero + ".");
-//		System.out.println();
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashSoma("Função Hash de Soma"));
+		System.out.print("\t\t\tInserção - Maior soma obtida pela Função Hash de Soma durante os testes: " + CalculadoraHashSoma.maiorSoma + ". " +
+				"Soma calculada a partir do número aleatório "); 
+		CalculadoraHashSoma.imprimirNumeroDumArrayDeDigitosSemQuebrarLinha(CalculadoraHashSoma.arrayDigitosSeparadosMaiorSoma, Registro.QTD_DIGITOS);
+		System.out.println(".");
+		System.out.println();
+		
+		
+		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashMultiplicacao("Função Hash de Multiplicação"));
+		System.out.print("\t\t\tInserção - Quantidade de registros com pelo um dígito sendo zero: " + 
+				CalculadoraHashMultiplicacao.qtdRegistrosComPeloMenosUmNumeroZero + ".");
+		System.out.println();
 	}
 	
 	private static void realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(CalculadoraHash calculadoraHash) {
