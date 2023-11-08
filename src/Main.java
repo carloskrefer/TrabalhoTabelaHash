@@ -5,14 +5,6 @@ public class Main {
 	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
 	
 	public static void main(String[] args) {		
-
-		ListaOrdenadaRegistro lo = new ListaOrdenadaRegistro();
-		lo.inserir(new Registro(11));
-		lo.inserir(new Registro(0));
-		lo.inserir(new Registro(11));
-		lo.inserir(new Registro(19));
-		lo.inserir(new Registro(-1));
-		lo.imprimir();
 		
 //		realizarTestesEmTabelasHashPorCalculadoraHashEspecifica(new CalculadoraHashResto("Função Hash de Resto"));
 //		System.out.println();

@@ -25,21 +25,24 @@ public class ListaOrdenadaRegistro {
 		No noAtual = primeiroNo;
 		No noAposAtual = primeiroNo.getProximoNo();
 		
+		if ((noAtual == primeiroNo) && (registro.getCodigo() <= noAtual.getRegistro().getCodigo())) {
+			primeiroNo = new No(registro);
+			primeiroNo.setProximoNo(noAtual);
+			return;
+		}	
+		
 		for (int i = 0; i < tamanho; i++) {
 			qtdComparacoesInsercao++;
 			
-			if ((noAtual == primeiroNo) && (registro.getCodigo() <= noAtual.getRegistro().getCodigo())) {
-				primeiroNo = new No(registro);
-				primeiroNo.setProximoNo(noAtual);
-				return;
-			}	
-			
 			if (noAposAtual == null) {
 				noAtual.setProximoNo(new No(registro));
+				return;
+				
 			} else {
 				if (registro.getCodigo() <= noAposAtual.getRegistro().getCodigo()) {
 					noAtual.setProximoNo(new No(registro));
 					noAtual.getProximoNo().setProximoNo(noAposAtual);
+					return;
 				} else {
 					noAtual = noAposAtual;
 					noAposAtual = noAposAtual.getProximoNo();
