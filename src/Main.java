@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Main {	
-	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {100000};
+	private static final int[] TAMANHOS_VETOR_TABELA_HASH = {10, 100, 1_000, 10_000, 100_000};
 	private static final int[] TAMANHOS_CONJUNTO_DADOS = {20_000, 100_000, 500_000, 1_000_000, 5_000_000};
 	
 	public static void main(String[] args) {		
